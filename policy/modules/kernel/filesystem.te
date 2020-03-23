@@ -106,7 +106,6 @@ genfscon configfs / gen_context(system_u:object_r:configfs_t,s0)
 
 type cpusetfs_t;
 fs_type(cpusetfs_t)
-allow cpusetfs_t self:filesystem associate;
 genfscon cpuset / gen_context(system_u:object_r:cpusetfs_t,s0)
 
 type ecryptfs_t;
@@ -133,12 +132,10 @@ dev_associate(hugetlbfs_t)
 
 type ibmasmfs_t;
 fs_type(ibmasmfs_t)
-allow ibmasmfs_t self:filesystem associate;
 genfscon ibmasmfs / gen_context(system_u:object_r:ibmasmfs_t,s0)
 
 type infinibandeventfs_t;
 fs_type(infinibandeventfs_t)
-allow infinibandeventfs_t self:filesystem associate;
 genfscon infinibandeventfs / gen_context(system_u:object_r:infinibandeventfs_t,s0)
 
 type inotifyfs_t;
@@ -153,7 +150,6 @@ genfscon kdbusfs / gen_context(system_u:object_r:kdbusfs_t,s0)
 
 type mvfs_t;
 fs_noxattr_type(mvfs_t)
-allow mvfs_t self:filesystem associate;
 genfscon mvfs / gen_context(system_u:object_r:mvfs_t,s0)
 
 type nfsd_fs_t;
@@ -274,7 +270,6 @@ genfscon smbfs / gen_context(system_u:object_r:cifs_t,s0)
 type dosfs_t;
 fs_noxattr_type(dosfs_t)
 files_mountpoint(dosfs_t)
-allow dosfs_t fs_t:filesystem associate;
 genfscon fat / gen_context(system_u:object_r:dosfs_t,s0)
 genfscon hfs / gen_context(system_u:object_r:dosfs_t,s0)
 genfscon hfsplus / gen_context(system_u:object_r:dosfs_t,s0)
@@ -286,8 +281,6 @@ genfscon vfat / gen_context(system_u:object_r:dosfs_t,s0)
 type fusefs_t;
 fs_noxattr_type(fusefs_t)
 files_mountpoint(fusefs_t)
-allow fusefs_t self:filesystem associate;
-allow fusefs_t fs_t:filesystem associate;
 genfscon fuse / gen_context(system_u:object_r:fusefs_t,s0)
 genfscon fuseblk / gen_context(system_u:object_r:fusefs_t,s0)
 genfscon fusectl / gen_context(system_u:object_r:fusefs_t,s0)
@@ -306,7 +299,6 @@ genfscon udf / gen_context(system_u:object_r:iso9660_t,s0)
 # removable_t is the default type of all removable media
 #
 type removable_t;
-allow removable_t noxattrfs:filesystem associate;
 fs_noxattr_type(removable_t)
 files_type(removable_t)
 dev_node(removable_t)
