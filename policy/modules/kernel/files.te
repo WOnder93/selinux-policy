@@ -218,8 +218,6 @@ files_spool_file(var_spool_t)
 # Rules for all file types
 #
 
-allow file_type self:filesystem associate;
-
 fs_associate(file_type)
 fs_associate_noxattr(file_type)
 fs_associate_tmpfs(file_type)
