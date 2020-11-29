@@ -1,22 +1,6 @@
 ## <summary>Policy for logical volume management programs.</summary>
 
 
-#####################################
-## <summary>
-##  lvm stub domain interface.  No access allowed.
-## </summary>
-## <param name="domain" unused="true">
-##  <summary>
-##  Domain allowed access
-##  </summary>
-## </param>
-#
-interface(`lvm_stub',`
-    gen_require(`
-        type lvm_t;
-    ')
-')
-
 ########################################
 ## <summary>
 ##	Get the attribute of lvm entrypoint files.
