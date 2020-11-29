@@ -283,10 +283,6 @@ optional_policy(`
     sssd_read_public_files(ssh_keysign_t)
 ')
 
-optional_policy(`
-    sge_rw_tcp_sockets(ssh_keysign_t)
-')
-
 #################################
 #
 # sshd local policy
@@ -444,10 +440,6 @@ optional_policy(`
 
 optional_policy(`
 	unconfined_shell_domtrans(sshd_t)
-')
-
-optional_policy(`
-    sge_rw_tcp_sockets(sshd_t)
 ')
 
 optional_policy(`

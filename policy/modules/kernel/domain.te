@@ -617,10 +617,6 @@ optional_policy(`
 ')
 
 optional_policy(`
-    rolekit_dbus_chat(domain)
-')
-
-optional_policy(`
     vmtools_unconfined_dbus_chat(domain)
 ')
 

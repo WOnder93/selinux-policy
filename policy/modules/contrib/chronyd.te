@@ -170,10 +170,6 @@ optional_policy(`
     realmd_dgram_send(chronyd_t)
 ')
 
-optional_policy(`
-    rolekit_dgram_send(chronyd_t)
-')
-
 ########################################
 #
 # Local policy

@@ -1223,7 +1223,6 @@ ifdef(`distro_redhat',`
 	')
 
 	optional_policy(`
-		dirsrvadmin_read_config(initrc_t)
 		dirsrv_manage_var_run(initrc_t)
 	')
 
@@ -1683,10 +1682,6 @@ optional_policy(`
 		# system-config-services causes avc messages that should be dontaudited
 		unconfined_dontaudit_rw_pipes(daemon)
 	')
-
-    optional_policy(`
-        authconfig_domtrans(initrc_t)
-    ')
 
 	optional_policy(`
 		mono_domtrans(initrc_t)
