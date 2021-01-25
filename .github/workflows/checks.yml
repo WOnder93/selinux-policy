@@ -46,7 +46,7 @@ jobs:
       - name: Build SELint
         run: |
           cd /tmp/selint
-          git checkout 41be80629874fb450278f2c2f3a1e77b00b91d14
+          git checkout d939a02e7528e623c8f8a091c392ed021047dba4
           autoreconf -i
           ./configure --without-check
           make -j $(nproc)
