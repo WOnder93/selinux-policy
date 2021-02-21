@@ -205,6 +205,7 @@ optional_policy(`
 	cloudform_init_domtrans(dhcpc_t)
 	cloudform_read_lib_files(dhcpc_t)
 	cloudform_read_lib_lnk_files(dhcpc_t)
+	cloudform_getattr_pid_files(dhcpc_t)
 ')
 
 optional_policy(`

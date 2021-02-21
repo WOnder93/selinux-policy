@@ -839,10 +839,6 @@ optional_policy(`
 ')
 
 optional_policy(`
-    sysnet_filetrans_cloud_net_conf(init_t)
-')
-
-optional_policy(`
 	tlp_filetrans_named_content(initrc_t)
 ')
 

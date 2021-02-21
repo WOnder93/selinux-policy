@@ -10,6 +10,9 @@ cloudform_domain_template(deltacloudd)
 cloudform_domain_template(iwhd)
 cloudform_domain_template(cloud_init)
 
+type cloud_init_var_run_t;
+files_pid_file(cloud_init_var_run_t)
+
 type cloud_init_tmp_t;
 files_tmp_file(cloud_init_tmp_t)
 
@@ -67,6 +70,11 @@ miscfiles_read_certs(cloudform_domain)
 allow cloud_init_t self:capability { fowner chown fsetid dac_read_search  };
 
 allow cloud_init_t self:udp_socket create_socket_perms;
+
+manage_dirs_pattern(cloud_init_t, cloud_init_var_run_t, cloud_init_var_run_t)
+manage_files_pattern(cloud_init_t, cloud_init_var_run_t, cloud_init_var_run_t)
+manage_lnk_files_pattern(cloud_init_t, cloud_init_var_run_t, cloud_init_var_run_t)
+files_pid_filetrans(cloud_init_t, cloud_init_var_run_t, dir, "cloud-init")
 
 manage_files_pattern(cloud_init_t, cloud_init_tmp_t, cloud_init_tmp_t)
 manage_dirs_pattern(cloud_init_t, cloud_init_tmp_t, cloud_init_tmp_t)
@@ -158,7 +166,6 @@ optional_policy(`
     sysnet_domtrans_ifconfig(cloud_init_t)
     sysnet_read_dhcpc_state(cloud_init_t)
     sysnet_dns_name_resolve(cloud_init_t)
-    sysnet_filetrans_cloud_net_conf(cloud_init_t)
 ')
 
 optional_policy(`

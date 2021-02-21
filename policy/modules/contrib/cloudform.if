@@ -61,6 +61,25 @@ interface(`cloudform_exec_mongod',`
 
 #######################################
 ## <summary>
+##  Allow getattr cloud-init runtime files.
+## </summary>
+## <param name="domain">
+##  <summary>
+##  Domain allowed access.
+##  </summary>
+## </param>
+#
+interface(`cloudform_getattr_pid_files',`
+	gen_require(`
+		type cloud_init_var_run_t;
+	')
+
+	files_search_pids($1)
+	getattr_files_pattern($1, cloud_init_var_run_t, cloud_init_var_run_t)
+')
+
+#######################################
+## <summary>
 ##  Allow read to cloud lib files.
 ## </summary>
 ## <param name="domain">
