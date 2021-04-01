@@ -30,6 +30,9 @@ interface(`unconfined_domain_noaudit',`
 	allow $1 self:file manage_file_perms;
 	allow $1 self:dir rw_dir_perms;
 
+	# Allow creating and managing own anon inodes.
+	allow $1 self:anon_inode manage_anon_inode_perms;
+
 	# Userland object managers
 	allow $1 self:nscd all_nscd_perms;
 	allow $1 self:dbus all_dbus_perms;
