@@ -63,6 +63,8 @@ dev_rw_sysfs(fwupd_t)
 dev_rw_generic_usb_dev(fwupd_t)
 dev_read_raw_memory(fwupd_t)
 
+files_watch_usr_dirs(fwupd_t)
+
 fs_getattr_all_fs(fwupd_t)
 
 logging_send_syslog_msg(fwupd_t)
