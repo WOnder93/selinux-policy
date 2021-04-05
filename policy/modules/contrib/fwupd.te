@@ -16,6 +16,9 @@ systemd_mount_dir(fwupd_cache_t)
 type fwupd_cert_t;
 miscfiles_cert_type(fwupd_cert_t)
 
+type fwupd_conf_t;
+files_config_file(fwupd_conf_t)
+
 type fwupd_var_lib_t;
 files_type(fwupd_var_lib_t)
 files_mountpoint(fwupd_var_lib_t)
@@ -29,7 +32,7 @@ systemd_unit_file(fwupd_unit_file_t)
 #
 allow fwupd_t self:fifo_file rw_fifo_file_perms;
 allow fwupd_t self:unix_stream_socket { create_stream_socket_perms connectto };
-allow fwupd_t self:netlink_kobject_uevent_socket create_socket_perms;;
+allow fwupd_t self:netlink_kobject_uevent_socket create_socket_perms;
 
 manage_dirs_pattern(fwupd_t, fwupd_cache_t, fwupd_cache_t)
 manage_files_pattern(fwupd_t, fwupd_cache_t, fwupd_cache_t)
@@ -39,6 +42,11 @@ files_var_filetrans(fwupd_t, fwupd_cache_t, { dir })
 allow fwupd_t fwupd_cert_t:dir list_dir_perms;
 read_files_pattern(fwupd_t, fwupd_cert_t, fwupd_cert_t)
 read_lnk_files_pattern(fwupd_t, fwupd_cert_t, fwupd_cert_t)
+
+list_dirs_pattern(fwupd_t, fwupd_conf_t, fwupd_conf_t)
+watch_dirs_pattern(fwupd_t, fwupd_conf_t, fwupd_conf_t)
+read_files_pattern(fwupd_t, fwupd_conf_t, fwupd_conf_t)
+read_lnk_files_pattern(fwupd_t, fwupd_conf_t, fwupd_conf_t)
 
 manage_dirs_pattern(fwupd_t, fwupd_var_lib_t, fwupd_var_lib_t)
 manage_files_pattern(fwupd_t, fwupd_var_lib_t, fwupd_var_lib_t)
