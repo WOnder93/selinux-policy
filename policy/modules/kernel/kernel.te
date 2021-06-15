@@ -261,6 +261,7 @@ allow kernel_t self:unix_stream_socket connectto;
 allow kernel_t self:fifo_file rw_fifo_file_perms;
 allow kernel_t self:sock_file read_sock_file_perms;
 allow kernel_t self:fd use;
+allow kernel_t self:lockdown { confidentiality integrity };
 
 allow kernel_t debugfs_t:dir search_dir_perms;
 
