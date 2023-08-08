@@ -4,7 +4,8 @@ specfile_path: tmp/rpm/selinux-policy.spec
 
 actions:
   post-upstream-clone:
-    - .copr/make-srpm.sh tmp/rpm srcdir
+    - mkdir -p tmp/rpm
+    - .copr/make-sources.sh tmp/rpm
   create-archive: sh -c 'ls tmp/rpm/selinux-policy*.tar.gz'
 
 jobs:
