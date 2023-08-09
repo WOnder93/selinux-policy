@@ -20,6 +20,7 @@ jobs:
       image: fedora:rawhide
       options: --security-opt seccomp=unconfined
     steps:
+      - run: dnf5 install -y "dnf < 5" --best
       - run: dnf install --nogpgcheck -y make git-core rpm-build 'dnf-command(builddep)'
       - uses: actions/checkout@v3
       # https://github.blog/2022-04-12-git-security-vulnerability-announced/
