@@ -706,3 +706,22 @@ template(`networkmanager_dispatcher_plugin_template',`
 
 	domtrans_pattern(NetworkManager_dispatcher_t, NetworkManager_dispatcher_$1_script_t, NetworkManager_dispatcher_$1_t)
 ')
+
+########################################
+## <summary>
+##	Use fds from the NetworkManager dispatcher.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+#
+interface(`networkmanager_dispatcher_use_fds',`
+	gen_require(`
+		type NetworkManager_dispatcher_t;
+	')
+
+    allow $1 NetworkManager_dispatcher_t:fd use;
+')

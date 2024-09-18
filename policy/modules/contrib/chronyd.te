@@ -304,3 +304,7 @@ optional_policy(`
 optional_policy(`
 	term_use_generic_ptys(chronyc_t)
 ')
+
+optional_policy(`
+	networkmanager_dispatcher_use_fds(chronyc_t)
+')

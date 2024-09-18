@@ -241,6 +241,8 @@ optional_policy(`
 	networkmanager_rw_udp_sockets(named_t)
 	networkmanager_rw_packet_sockets(named_t)
 	networkmanager_rw_routing_sockets(named_t)
+
+	networkmanager_dispatcher_use_fds(named_t)
 ')
 
 optional_policy(`
