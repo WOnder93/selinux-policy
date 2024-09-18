@@ -2271,6 +2271,24 @@ interface(`systemd_dontaudit_dbus_chat',`
 
 ######################################
 ## <summary>
+##	Use fds from systemd-machined.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`systemd_machined_use_fds',`
+	gen_require(`
+		type systemd_machined_t;
+	')
+
+	allow $1 systemd_machined_t:fd use;
+')
+
+######################################
+## <summary>
 ##	Read systemd-machined PID files.
 ## </summary>
 ## <param name="domain">
