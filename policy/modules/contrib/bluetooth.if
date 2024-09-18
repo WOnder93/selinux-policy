@@ -58,6 +58,24 @@ interface(`bluetooth_role',`
 
 #####################################
 ## <summary>
+##	Use fds from bluetooth.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`bluetooth_use_fds',`
+	gen_require(`
+		type bluetooth_t;
+	')
+
+	allow $1 bluetooth_t:fd use;
+')
+
+#####################################
+## <summary>
 ##	Connect to bluetooth over a unix domain
 ##	stream socket.
 ## </summary>
