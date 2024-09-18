@@ -618,6 +618,7 @@ init_status(NetworkManager_dispatcher_ddclient_t)
 init_append_stream_sockets(networkmanager_dispatcher_plugin)
 init_ioctl_stream_sockets(networkmanager_dispatcher_plugin)
 init_stream_connect(networkmanager_dispatcher_plugin)
+init_use_fds(networkmanager_dispatcher_plugin)
 
 optional_policy(`
 	bind_domtrans(NetworkManager_dispatcher_dnssec_t)
